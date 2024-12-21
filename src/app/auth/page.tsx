@@ -16,7 +16,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { ThemeToggle } from '@/components/theme-toggle'
 import PasswordInput from '@/components/ui/password-input'
 
 export default function AuthPage() {
@@ -35,9 +34,6 @@ export default function AuthPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="absolute right-4 top-4">
-        <ThemeToggle />
-      </div>
       <div className="w-full max-w-[400px] space-y-6">
         <div className="flex flex-col items-center space-y-2 text-center">
           <h1 className="text-2xl font-bold text-foreground">Welcome Back</h1>
@@ -141,7 +137,7 @@ export default function AuthPage() {
                 <div className="space-y-2">
                   <Label htmlFor="profile-image">Profile Image</Label>
                   <div className="flex items-center gap-4">
-                    <div className="relative h-16 w-16 overflow-hidden rounded-full border">
+                    <div className="relative size-16 overflow-hidden rounded-full border">
                       {imagePreview ? (
                         <Image
                           src={imagePreview}
@@ -150,7 +146,7 @@ export default function AuthPage() {
                           className="object-cover"
                         />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground">
+                        <div className="flex h-full w-full items-center text-center text-xs justify-center bg-muted text-muted-foreground rounded-full">
                           No image
                         </div>
                       )}
