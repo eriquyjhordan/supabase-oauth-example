@@ -6,6 +6,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ThemeToggle } from '@/components/theme-toggle'
+import { createClient } from '@/utils/supabase/server'
+import { LogOut } from '@/components/log-out'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -27,11 +29,14 @@ export const metadata: Metadata = {
 
 export const experimental_ppr = true
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const supabase = await createClient()
+  const { data: user } = await supabase.auth.getUser()
+
   return (
     <html lang="pt-BR">
       <body className={`${inter.variable} ${poppins.variable} antialiased`}>
@@ -45,9 +50,13 @@ export default function RootLayout({
                 </Link>
                 <div className="flex items-center gap-4">
                   <ThemeToggle />
-                  <Button variant="ghost" asChild>
-                    <Link href="/login">Login</Link>
-                  </Button>
+                  {user && user.user ? (
+                    <LogOut />
+                  ) : (
+                    <Button variant="ghost" asChild>
+                      <Link href="/login">Login</Link>
+                    </Button>
+                  )}
                   <Button asChild>
                     <Link href="/dashboard">Dashboard</Link>
                   </Button>

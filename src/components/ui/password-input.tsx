@@ -5,11 +5,14 @@ import { Check, Eye, EyeOff, X } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-interface PasswordInputProps {
+interface PasswordInputProps extends React.HTMLProps<HTMLInputElement> {
   isLogin?: boolean
 }
 
-export default function PasswordInput({ isLogin = false }: PasswordInputProps) {
+export default function PasswordInput({
+  isLogin = false,
+  ...rest
+}: PasswordInputProps) {
   const [password, setPassword] = useState('')
   const [isVisible, setIsVisible] = useState<boolean>(false)
 
@@ -64,6 +67,7 @@ export default function PasswordInput({ isLogin = false }: PasswordInputProps) {
             onChange={(e) => setPassword(e.target.value)}
             aria-invalid={strengthScore < 4}
             aria-describedby="password-strength"
+            {...rest}
           />
           <button
             className="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg text-muted-foreground/80 outline-offset-2 transition-colors hover:text-foreground focus:z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring/70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50"
