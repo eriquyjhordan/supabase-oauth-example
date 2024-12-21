@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['github.com'],
   },
+  experimental: {
+    ppr: 'incremental',
+  },
 }
 
 export default nextConfig

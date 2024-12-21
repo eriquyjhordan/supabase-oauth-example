@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import type { Metadata } from 'next'
 import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
@@ -23,6 +24,8 @@ export const metadata: Metadata = {
   description:
     'Simple example of how to use Supabase OAuth with Google and Twitter',
 }
+
+export const experimental_ppr = true
 
 export default function RootLayout({
   children,
