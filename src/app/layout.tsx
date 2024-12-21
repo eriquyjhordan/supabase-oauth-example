@@ -43,7 +43,7 @@ export default function RootLayout({
                 <div className="flex items-center gap-4">
                   <ThemeToggle />
                   <Button variant="ghost" asChild>
-                    <Link href="/auth">Login</Link>
+                    <Link href="/login">Login</Link>
                   </Button>
                   <Button asChild>
                     <Link href="/dashboard">Dashboard</Link>
