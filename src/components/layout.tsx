@@ -16,7 +16,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex items-center gap-4">
               <ThemeToggle />
               <Button variant="ghost" asChild>
-                <Link href="/login">Login</Link>
+                <Link href="/auth">Login</Link>
               </Button>
               <Button asChild>
                 <Link href="/dashboard">Dashboard</Link>
