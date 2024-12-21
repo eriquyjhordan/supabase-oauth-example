@@ -11,6 +11,11 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends('@rocketseat/eslint-config/next', 'next/core-web-vitals'),
+  {
+    rules: {
+      '@typescript-eslint/no-unsafe-declaration-merging': 'off',
+    },
+  },
 ]
 
 export default eslintConfig
