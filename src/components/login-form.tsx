@@ -11,9 +11,9 @@ import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
 import PasswordInput from './ui/password-input'
 import { Button } from './ui/button'
-import { Twitter } from 'lucide-react'
 import { login } from '@/app/login/actions'
 import { GoogleOauth } from './google-oauth'
+import { TwitterOauth } from './twitter-oauth'
 
 export async function LoginForm() {
   return (
@@ -56,10 +56,7 @@ export async function LoginForm() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <GoogleOauth />
-            <Button variant="outline">
-              <Twitter className="mr-2 h-4 w-4" />
-              Twitter
-            </Button>
+            <TwitterOauth />
           </div>
         </CardFooter>
       </form>
